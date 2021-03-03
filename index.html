@@ -1,71 +1,92 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Assignment_2</title>
-	<link rel="stylesheet" href="home.css">
+<meta charset="UTF-8">
+<title>assignment4</title>
 </head>
-<body class="main">
 
-    <header>
-
-        <div class="container-shadow">
-			<img src="firstbook.jpg" class="heading-style">
-			<a href="index.html" class="heading"></a>
-        </div>
-
-    </header>
-
-    <div class="title">
-
-        <div class="Service">L.I.V.E. Consulting Services</div>
-
-        <div class="Mission">Learn. Integrate. Vision. Execute.</div>
-
-
-    </div>
-
-    <div class="topnav">
-
-        <a href="index.html">Home</a>
-
-        <a href="contact.html">Contact</a>
-
-        <a href="services.html">Services</a>
-
-    </div>
-
-    <div class= "container">
-        <img src= "stackofbooks.jpg" class="responsive">
-    </div>
-
-    <div class="About">
+<body>
+	<script> language="javascript"
 		
-        <h2>A Snapshot of Us!</h2>
+	var hNum, fNum, sNum;
+		
+	hNum = parseInt(prompt("how many hotdogs do you want to order?", ""));
+	fNum = parseInt(prompt("how many fries do you want to order?", ""));
+	sNum = parseInt(prompt("how many sodas do you want to order?", ""));
+	//prints out the amount of items ordered
+	document.write("Customer, you have ordered: ");
+	document.write("<br>");
+	document.write( hNum +" hotdog(s)");
+	document.write("<br>");
+	document.write( fNum +" french fries");
+	document.write("<br>");
+	document.write( sNum +" soda(s)");	
+	document.write("<br>");
+	document.write("<br>");
+		
 
-        <p4>Our education-based consulting firm aims to be the first place to look for guidance, scholarship tips, professional advice, and, even, immigration-related advice. We aim to serve you, students--the future of tomorrow!
- 		</p4>
+	firstF = hotdogPrice(hNum); 
+	secondF = frenchPrice(fNum);
+	thirdF = sodaPrice(sNum);
+			
+	first_total = parseFloat(subtotal(firstF, secondF, thirdF));
+	first_total = first_total.toFixed(2);
+	//prints out the subtotal 
+	document.write("Your subtotal is: " + "$"+ first_total); 
+		
+	document.write("<br>");
+		
+	if(first_total >= 20.00)
+	{
+		discount = parseFloat(first_total*.10).toFixed(2);
+		document.write("The discount is: "+"$" + discount);
+		first_total = (parseFloat(first_total - discount)).toFixed(2);
+		document.write("<br>");
+		//prints out the discounted price 
+		document.write("The discounted price (before sales tax) is: "+"$"+first_total); 
+		document.write("<br>");
+	} 
+	else
+	{
+		num = 0 ;
+		discount = num.toFixed(2);
+		document.write("The discount is: " + "$" + discount);
+		first_total = (first_total - discount);	
+		document.write("<br>");
+	}
+		
 
-    </div>
-
-    <br>
+	taxrate = (parseFloat(0.0625)).toFixed(2);
+	taxes = (parseFloat(first_total)*(taxrate)).toFixed(2);
+	//prints out the sales tax
+	document.write("The sales tax is: " + "$"+ taxes);
 	
-    <div class="flex-container">
-    	<img src="flipbook.jpg" class="bottompic">
-    </div>
+	overallPrice = (parseFloat(taxes)+ parseFloat(first_total)).toFixed(2);
+	document.write("<br>");
+	// prints out the final overall price with taxes 
+	document.write("The total amount is: " + "$" + overallPrice); 
+		
+		
+	//declaration of functions below --------------------------
+	
+	function hotdogPrice(num){
+		return (num*3.25);
+	}
+	
+	function frenchPrice(num){
+		return (num*2.00);
+	}
+		
+	function sodaPrice(num){
+		return (num*1.50);
+	}
+		
+	function subtotal(num1, num2, num3){
+		total = (num1 + num2 + num3);
+		return total;
+	}
+	
 
+	</script>
 </body>
-	
-<footer>
-
-    <div class="footer">
-        <div class="footerLinks">
-        	<a href="services.html">Services</a>
-        </div>            
-        
-		<p>&copy; 2021. Educational Consulting Services LLC. All Rights Reserved.</p>    
-    </div>    
-
-</footer>	
-	
 </html>
