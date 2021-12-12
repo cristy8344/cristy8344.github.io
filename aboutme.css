@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
         body {
+			font-family: bold serif, serif, Times New Roman;
             background-color: #d5d5d4; /* background color for the entire thing */
             margin: 0px;
         }
